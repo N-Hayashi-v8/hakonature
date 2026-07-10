@@ -1,0 +1,13 @@
+// 色・フォントなどの共通変数
+// 参照: https://hakonature.jp/（Figma共通項目より）
+
+$color-background: #f2f2e9; // 背景色
+$color-text: #1c1814; // 文字色
+$color-button: #00b74f; // ボタン色
+$color-background-hover: #e6e6cf; // ホバー時背景色
+$color-border-tag: #cbc4bb; // リンクタグの枠
+$color-black: #000; // JP/ENトグルの枠線
+$color-white: #fff; // バナー等の白文字
+
+$font-family-en: "Arimo", sans-serif; // メニュー、タグなどのアルファベット
+$font-family-jp: "Zen Kaku Gothic New", sans-serif; // 日本語の説明文など

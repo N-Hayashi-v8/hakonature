@@ -1,0 +1,8 @@
+@use "foundation/variable" as *;
+@use "foundation/mixin" as *;
+@use "foundation/base";
+@use "layout/header";
+@use "object/project/mv";
+
+// object/component, object/utility は
+// 実装が発生した時点でここに @use を追加する

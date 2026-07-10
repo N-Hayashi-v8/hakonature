@@ -1,0 +1,102 @@
+@use "../../foundation/variable" as *;
+@use "../../foundation/mixin" as *;
+
+.p-mv {
+  &__image-wrap {
+    padding: 0 96px;
+  }
+
+  &__image-inner {
+    position: relative;
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1728 / 864;
+    object-fit: cover;
+  }
+
+  &__banner {
+    position: absolute;
+    right: -32px;
+    bottom: -75px;
+    display: flex;
+    width: 374px;
+    height: 117px;
+    background-color: $color-button;
+    text-decoration: none;
+  }
+
+  &__banner-thumb {
+    display: block;
+    width: 156px;
+    height: 117px;
+    object-fit: cover;
+  }
+
+  &__banner-text {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    padding: 0 16px; // 要確認: バナーテキストの内側余白
+    font-family: $font-family-jp;
+    font-size: 1.3rem; // 要確認: フォントサイズ
+    line-height: 1.5;
+    color: $color-white;
+  }
+
+  &__body {
+    padding: 32px 96px 0; // 要確認: 画像下の余白
+  }
+
+  &__heading {
+    font-family: $font-family-jp;
+    font-size: 3.2rem; // 要確認: 見出しフォントサイズ
+    color: $color-text;
+  }
+
+  &__row {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px; // 要確認: 本文とボタンの間隔
+    margin-top: 24px; // 要確認: 見出しとの間隔
+  }
+
+  &__lead {
+    max-width: 900px; // 要確認: 本文の最大幅
+    font-family: $font-family-jp;
+    font-size: 1.4rem; // 要確認: 本文フォントサイズ
+    line-height: 1.8;
+    color: $color-text;
+  }
+
+  &__link {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 192px;
+    height: 42px;
+    border-right: 1px solid $color-text; // 要確認: 枠線の色
+    border-bottom: 1px solid $color-text; // 要確認: 枠線の色
+    font-family: $font-family-en;
+    font-size: 1.3rem; // 要確認: フォントサイズ
+    color: $color-text;
+    text-decoration: none;
+  }
+
+  &__link-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: $color-button;
+    color: $color-white;
+    font-size: 1.2rem;
+  }
+}

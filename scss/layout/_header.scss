@@ -1,0 +1,89 @@
+@use "../foundation/variable" as *;
+@use "../foundation/mixin" as *;
+
+// 要確認: SP版ナビ（ハンバーガーメニュー等）は未実装
+
+.l-header {
+  background-color: $color-background;
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 40px;
+  }
+
+  &__logo {
+    display: block;
+    flex-shrink: 0;
+
+    img {
+      display: block;
+      width: auto;
+      height: 28px;
+    }
+  }
+
+  &__menu {
+    display: flex;
+    align-items: center;
+    gap: 40px; // 要確認: ナビとトグルの間隔
+  }
+
+  &__nav-list {
+    display: flex;
+    align-items: center;
+    gap: 32px; // 要確認: 項目間隔
+    list-style: none;
+  }
+
+  &__nav-link {
+    font-family: $font-family-en;
+    font-weight: 400;
+    font-size: 1.4rem;
+    line-height: 2rem;
+    color: $color-text;
+    text-decoration: none;
+
+    &:hover {
+      opacity: 0.7; // 要確認: ホバー時の見た目
+    }
+  }
+
+  &__lang {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    overflow: hidden;
+    width: 80px;
+    height: 30px;
+    border: 1px solid $color-black;
+    border-radius: 4px;
+  }
+
+  &__lang-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    height: 100%;
+    border: none;
+    background-color: transparent;
+    font-family: $font-family-en;
+    font-size: 1.2rem;
+    color: $color-text;
+    cursor: pointer;
+    forced-color-adjust: none; // OSのハイコントラスト/強制カラーで背景色が上書きされるのを防ぐ
+    outline: none;
+
+    &:focus-visible {
+      outline: 2px solid $color-text;
+      outline-offset: -2px;
+    }
+
+    &.is-active {
+      background-color: $color-text;
+      color: $color-background;
+    }
+  }
+}

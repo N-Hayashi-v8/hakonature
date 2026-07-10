@@ -1,0 +1,10 @@
+// ブレイクポイント等の共通mixin
+// 必要になった時点で追加する
+
+$breakpoint-sm: 768px;
+
+@mixin sp {
+  @media (max-width: $breakpoint-sm) {
+    @content;
+  }
+}
