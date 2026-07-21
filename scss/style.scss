@@ -3,6 +3,7 @@
 @use "foundation/base";
 @use "layout/header";
 @use "object/project/mv";
+@use "object/project/pickup-news";
 
 // object/component, object/utility は
 // 実装が発生した時点でここに @use を追加する

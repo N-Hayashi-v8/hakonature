@@ -1,0 +1,96 @@
+@use "../../foundation/variable" as *;
+@use "../../foundation/mixin" as *;
+
+.p-pickup-news {
+  margin-top: 10rem; // MVセクションとの余白
+  border-top: 1px solid $color-border-tag;
+  border-bottom: 1px solid $color-border-tag;
+
+  &__label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    height: 4.4rem;
+    padding: 0 96px; // 要確認: 左右余白
+    border-bottom: 1px solid $color-border-tag;
+    font-family: $font-family-en;
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 0.05em; // 要確認: 文字間
+    color: $color-button;
+  }
+
+  &__label-icon {
+    display: inline-block;
+    font-size: 1rem;
+    transform: rotate(-90deg); // 要確認: 元アイコン素材未特定のため矢印文字で代用
+  }
+
+  &__list {
+    display: flex;
+    height: 16rem;
+  }
+
+  &__item {
+    flex: 1;
+    padding: 4rem;
+    border-right: 1px solid $color-border-tag;
+    text-decoration: none;
+
+    &:first-child {
+      padding-left: calc(96px + 4rem);
+    }
+  }
+
+  &__more {
+    display: flex;
+    flex-shrink: 0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 168px; // 要確認: 幅
+    padding: 4rem;
+    padding-right: calc(96px + 4rem);
+    text-decoration: none;
+  }
+
+  &__more-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px; // 要確認: サイズ
+    height: 48px;
+    border-radius: 50%;
+    background-color: $color-button;
+    color: $color-white;
+    font-size: 1.6rem;
+  }
+
+  &__more-text {
+    font-family: $font-family-en;
+    font-size: 1.1rem;
+    letter-spacing: 0.05em;
+    color: $color-text;
+  }
+
+  &__date {
+    margin-bottom: 8px; // 要確認: 日付とテキストの間隔
+    font-family: $font-family-en;
+    font-size: 1.2rem;
+    color: $color-text;
+    opacity: 0.5; // 要確認: 正確な色は未特定のため文字色+不透明度で代用
+  }
+
+  &__text {
+    font-family: $font-family-jp;
+    font-size: 1.3rem; // 要確認: フォントサイズ
+    line-height: 1.6;
+    color: $color-text;
+  }
+
+  &__tag {
+    margin-right: 4px;
+    font-weight: 700;
+  }
+}

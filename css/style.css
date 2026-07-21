@@ -169,4 +169,87 @@ body {
   background-color: #00b74f;
   color: #fff;
   font-size: 1.2rem;
+}
+
+.p-pickup-news {
+  margin-top: 10rem;
+  border-top: 1px solid #cbc4bb;
+  border-bottom: 1px solid #cbc4bb;
+}
+.p-pickup-news__label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 4.4rem;
+  padding: 0 96px;
+  border-bottom: 1px solid #cbc4bb;
+  font-family: "Arimo", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #00b74f;
+}
+.p-pickup-news__label-icon {
+  display: inline-block;
+  font-size: 1rem;
+  transform: rotate(-90deg);
+}
+.p-pickup-news__list {
+  display: flex;
+  height: 16rem;
+}
+.p-pickup-news__item {
+  flex: 1;
+  padding: 4rem;
+  border-right: 1px solid #cbc4bb;
+  text-decoration: none;
+}
+.p-pickup-news__item:first-child {
+  padding-left: calc(96px + 4rem);
+}
+.p-pickup-news__more {
+  display: flex;
+  flex-shrink: 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 168px;
+  padding: 4rem;
+  padding-right: calc(96px + 4rem);
+  text-decoration: none;
+}
+.p-pickup-news__more-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: #00b74f;
+  color: #fff;
+  font-size: 1.6rem;
+}
+.p-pickup-news__more-text {
+  font-family: "Arimo", sans-serif;
+  font-size: 1.1rem;
+  letter-spacing: 0.05em;
+  color: #1c1814;
+}
+.p-pickup-news__date {
+  margin-bottom: 8px;
+  font-family: "Arimo", sans-serif;
+  font-size: 1.2rem;
+  color: #1c1814;
+  opacity: 0.5;
+}
+.p-pickup-news__text {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-size: 1.3rem;
+  line-height: 1.6;
+  color: #1c1814;
+}
+.p-pickup-news__tag {
+  margin-right: 4px;
+  font-weight: 700;
 }/*# sourceMappingURL=style.css.map */

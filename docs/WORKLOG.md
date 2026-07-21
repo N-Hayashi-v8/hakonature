@@ -1,5 +1,14 @@
 # WORKLOG
 
+## 2026-07-21
+
+- PICKUP NEWSセクション実装
+  - ラベル行（「PICKUP NEWS」+ 矢印アイコン）、ニュース3件、View Moreの4カラム構成
+  - アイコン画像素材が無いため、ラベル横のシェブロンは `»` を回転、View Moreの矢印は既存MVの矢印パターンを流用
+  - カラーは新規追加せず、緑は `$color-button`、区切り線は `$color-border-tag` を流用
+  - ユーザー指示によりMVとの余白10rem・ラベル行高さ4.4rem・コンテンツ行高さ16rem・コンテンツ内側余白4rem均等を確定反映（`scss/object/project/_pickup-news.scss`）
+  - （要確認）ラベル行の左右余白・文字間、View More列幅、日付文字色、本文フォントサイズは仮値のまま
+
 ## 2026-07-10
 
 - Figma共通項目（参照URL・フォント・カラー）を確認し反映
