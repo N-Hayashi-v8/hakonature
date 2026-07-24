@@ -1,0 +1,43 @@
+@use "../../foundation/variable" as *;
+@use "../../foundation/mixin" as *;
+
+.p-marquee {
+  overflow: hidden; // はみ出す文字をクリップ
+  border-top: 1px solid $color-black; // Figma: 上下ボーダー #000
+  border-bottom: 1px solid $color-black;
+
+  &__track {
+    display: flex;
+    width: max-content; // 2コピー分の実幅を確保
+    animation: p-marquee-scroll 60s linear infinite; // 要確認: 速度（ゆっくり）
+    will-change: transform;
+  }
+
+  &__text {
+    flex-shrink: 0;
+    padding-right: 4rem; // コピー間の余白（ループの継ぎ目を一定に）
+    font-family: $font-family-en;
+    font-size: 10rem; // 指定: 幅（文字サイズ）10rem
+    font-weight: 700;
+    line-height: 1.4; // 帯の高さ約141pxに相当
+    white-space: nowrap;
+    color: $color-text;
+  }
+}
+
+// 2コピーを -50%（＝1コピー分）動かして継ぎ目なくループ
+@keyframes p-marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .p-marquee__track {
+    animation: none;
+  }
+}

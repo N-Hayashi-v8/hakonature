@@ -11,6 +11,23 @@
   - `scss/object/project/_journal.scss`を新規作成、`scss/style.scss`に`@use`追加、`index.html`にマークアップ追加
   - （要確認）各フォントサイズ・余白、ルートタグ背景色の正確な値、View More/もっと見るアイコンサイズは仮値のまま
 
+- JOURNAL細部調整（Figma個別指定を反映）
+  - View Moreを共通コンポーネント `c-more`（`scss/object/component/_more.scss`）へ切り出し、journal・tourで共通利用。`p-journal__more`は位置指定（右下）のみに縮小
+  - View Moreボタンを箱型に確定: 120×40・枠は右/下のみ `#000`・緑丸矢印
+  - Route行を上下1pxボーダーのバンド化（色 `#CBC4BB` = `$color-border-tag`、高さ50px相当をpaddingで確保）
+  - ハッシュタグを角丸4px（全円→4px）・枠 `#CBC4BB` のチップに変更
+
+- マーキー（文字スライド）セクション実装
+  - `p-marquee`（`scss/object/project/_marquee.scss`）新規。文字サイズ10rem、英文2コピーをtrack `-50%` 移動で継ぎ目なく無限ループ
+  - 帯の上下に `#000` 1pxボーダー、`overflow: hidden` でクリップ、`prefers-reduced-motion` でアニメ停止
+  - （要確認）速度 `animation-duration: 60s` は仮値
+
+- TOUR/EVENTセクション実装
+  - `p-tour`（`scss/object/project/_tour.scss`）新規。見出し（TOUR/EVENT）＋2×2グリッドのカード4件（`tour1〜4.png`）
+  - 各カードは左サムネ＋右本文（タイトル・説明・View More=`c-more` 流用）。DOM順で左右・上下に配置
+  - 上部の全幅写真 `experience.png`（1920×650）は未実装。マーキーと対の experienceセクションとして別途対応予定
+  - （要確認）カード枠線構成・内側余白・サムネ幅・フォントサイズ、英語カードのフォント
+
 ## 2026-07-21
 
 - PICKUP NEWSセクション実装

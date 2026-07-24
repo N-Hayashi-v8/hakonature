@@ -133,6 +133,9 @@
     align-items: center;
     flex-wrap: wrap;
     gap: 8px;
+    padding: 14px 0; // Figma: Route項目 高さ50px相当（要確認: 上下余白）
+    border-top: 1px solid $color-border-tag; // Figma: 上下ボーダー #CBC4BB
+    border-bottom: 1px solid $color-border-tag;
     font-family: $font-family-jp;
     font-size: 1.2rem;
     color: $color-text;
@@ -171,39 +174,18 @@
   }
 
   &__tag {
-    padding: 4px 16px; // 要確認: 内側余白
-    border: 1px solid $color-border-tag;
-    border-radius: 999px;
+    padding: 8px 16px; // 高さ36px相当（要確認: 上下余白）
+    border: 1px solid $color-border-tag; // Figma: 1px #CBC4BB
+    border-radius: 4px; // Figma: 角丸4px
     font-family: $font-family-jp;
     font-size: 1.1rem;
     color: $color-text;
   }
 
+  // c-more と併用（見た目は c-more、位置のみ担当）
   &__more {
-    display: flex;
-    align-items: center;
-    align-self: flex-end;
-    gap: 8px;
+    align-self: flex-end; // カード右下に配置
     margin-top: auto;
-  }
-
-  &__more-text {
-    font-family: $font-family-en;
-    font-size: 1.2rem;
-    letter-spacing: 0.05em;
-    color: $color-text;
-  }
-
-  &__more-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 32px; // 要確認: サイズ
-    height: 32px;
-    border-radius: 50%;
-    background-color: $color-button;
-    color: $color-white;
-    font-size: 1.4rem;
   }
 
   &__all {

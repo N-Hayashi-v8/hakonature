@@ -1,0 +1,34 @@
+@use "../../foundation/variable" as *;
+
+// View More ボタン（右・下のみ枠線＋緑丸矢印）。journal / tour など複数セクションで共通利用
+.c-more {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 120px; // Figma: 120×40
+  padding: 8px 12px; // 高さ40pxはpaddingで確保（要確認: 左右余白）
+  border-right: 1px solid $color-black; // Figma: 枠は右・下のみ #000
+  border-bottom: 1px solid $color-black;
+  text-decoration: none;
+
+  &__text {
+    font-family: $font-family-en;
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: $color-text;
+  }
+
+  &__icon {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 24px; // 要確認: 緑丸の径（Figma未指定・40px枠から推定）
+    height: 24px;
+    border-radius: 50%;
+    background-color: $color-button;
+    color: $color-white;
+    font-size: 1.2rem;
+  }
+}

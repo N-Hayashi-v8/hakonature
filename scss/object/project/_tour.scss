@@ -1,0 +1,96 @@
+@use "../../foundation/variable" as *;
+@use "../../foundation/mixin" as *;
+
+.p-tour {
+  padding: 17rem 96px; // 要確認: セクション上下余白（journalに合わせ仮17rem）
+
+  &__heading {
+    text-align: center;
+  }
+
+  &__title {
+    font-family: $font-family-en;
+    font-size: 3.2rem; // 要確認: フォントサイズ
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: $color-text;
+  }
+
+  &__title-jp {
+    margin-top: 8px; // 要確認: 間隔
+    font-family: $font-family-jp;
+    font-size: 1.3rem; // 要確認: フォントサイズ
+    color: $color-button;
+  }
+
+  &__lead {
+    margin-top: 24px; // 要確認: 間隔
+    font-family: $font-family-jp;
+    font-size: 1.4rem; // 要確認: フォントサイズ
+    color: $color-text;
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6.4rem 4rem; // 要確認: カード間の縦・横余白
+    max-width: 1100px; // 要確認: コンテンツ幅
+    margin: 6.4rem auto 0; // 要確認: 見出しとの間隔
+  }
+
+  &__item {
+    display: flex;
+    align-items: stretch;
+    text-decoration: none;
+  }
+
+  &__thumb {
+    flex-shrink: 0;
+    width: 240px; // 要確認: サムネイル幅（tour*.png 実寸270px）
+  }
+
+  &__thumb-img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__body {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    border-top: 1px solid $color-border-tag; // 要確認: 枠線（上・右・下）
+    border-right: 1px solid $color-border-tag;
+    border-bottom: 1px solid $color-border-tag;
+  }
+
+  &__item-title {
+    padding: 2.4rem; // 要確認: 内側余白
+    border-bottom: 1px solid $color-border-tag; // 要確認: タイトル下の区切り線
+    font-family: $font-family-jp;
+    font-size: 1.8rem; // 要確認: フォントサイズ
+    font-weight: 700;
+    line-height: 1.5;
+    color: $color-text;
+  }
+
+  &__content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding: 2.4rem; // 要確認: 内側余白
+  }
+
+  &__text {
+    font-family: $font-family-jp;
+    font-size: 1.3rem; // 要確認: フォントサイズ
+    line-height: 1.8;
+    color: $color-text;
+  }
+
+  // c-more と併用（見た目は c-more、位置のみ担当）
+  &__more {
+    margin-top: auto; // カード下端に配置（左寄せ）
+  }
+}
