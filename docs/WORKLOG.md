@@ -1,5 +1,16 @@
 # WORKLOG
 
+## 2026-07-24
+
+- JOURNALセクション実装
+  - 構成: 見出し（JOURNAL / ジャーナル / リード文）、ジャーナル3件、「ジャーナルをもっと見る」リンク
+  - レイアウト: 左サムネイル495px（`img/top/journal1〜3.png`）＋ 右本文（タイトル・本文・所要時間・Route・タグ・View More）
+  - ユーザー指示を確定反映: セクション上下余白17rem、コンテンツ幅1100px、コンテンツ間の縦余白40px、枠線はタイトルのみ・色`#000`
+  - 時計（所要時間）アイコンは素材が無いため`&__duration-icon`の擬似要素でCSS代用
+  - カラーは新規追加せず流用（緑`$color-button`、区切り線・タグ枠`$color-border-tag`、ルートタグ背景`$color-background-hover`）
+  - `scss/object/project/_journal.scss`を新規作成、`scss/style.scss`に`@use`追加、`index.html`にマークアップ追加
+  - （要確認）各フォントサイズ・余白、ルートタグ背景色の正確な値、View More/もっと見るアイコンサイズは仮値のまま
+
 ## 2026-07-21
 
 - PICKUP NEWSセクション実装

@@ -1,0 +1,236 @@
+@use "../../foundation/variable" as *;
+@use "../../foundation/mixin" as *;
+
+.p-journal {
+  padding: 17rem 96px; // ユーザー指示: セクション上下余白17rem
+
+  &__heading {
+    text-align: center;
+  }
+
+  &__title {
+    font-family: $font-family-en;
+    font-size: 3.2rem; // 要確認: フォントサイズ
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: $color-text;
+  }
+
+  &__title-jp {
+    margin-top: 8px; // 要確認: 間隔
+    font-family: $font-family-jp;
+    font-size: 1.3rem; // 要確認: フォントサイズ
+    color: $color-button;
+  }
+
+  &__lead {
+    margin-top: 24px; // 要確認: 間隔
+    font-family: $font-family-jp;
+    font-size: 1.4rem; // 要確認: フォントサイズ
+    color: $color-text;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem; // ユーザー指示: コンテンツ間の縦余白40px
+    max-width: 1100px; // ユーザー指示: コンテンツ幅1100px
+    margin: 6.4rem auto 0; // 要確認: タイトルとの間隔
+  }
+
+  &__item {
+    display: flex;
+    align-items: stretch;
+    text-decoration: none;
+  }
+
+  &__thumb {
+    flex-shrink: 0;
+    width: 495px; // img/top/journal*.pngの実寸に合わせる
+  }
+
+  &__thumb-img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__body {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+  }
+
+  &__item-title {
+    padding: 3.2rem 4rem;
+    border: 1px solid $color-black; // ユーザー指示: 枠線はタイトルのみ・色#000
+    font-family: $font-family-jp;
+    font-size: 2rem; // 要確認: フォントサイズ
+    font-weight: 700;
+    line-height: 1.6;
+    color: $color-text;
+  }
+
+  &__content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 2rem; // 要確認: 各項目の間隔
+    padding: 3.2rem 4rem;
+  }
+
+  &__text {
+    font-family: $font-family-jp;
+    font-size: 1.3rem; // 要確認: フォントサイズ
+    line-height: 1.8;
+    color: $color-text;
+  }
+
+  &__duration {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: $font-family-jp;
+    font-size: 1.2rem;
+    color: $color-text;
+  }
+
+  &__duration-icon {
+    position: relative;
+    display: block;
+    width: 14px;
+    height: 14px;
+    border: 1.5px solid $color-button; // 要確認: 時計アイコン素材が無いためCSSで代用
+    border-radius: 50%;
+
+    &::before,
+    &::after {
+      position: absolute;
+      left: 50%;
+      bottom: 50%;
+      display: block;
+      background-color: $color-button;
+      content: "";
+      transform-origin: bottom center;
+    }
+
+    &::before {
+      width: 1px;
+      height: 5px;
+      transform: translateX(-50%) rotate(20deg);
+    }
+
+    &::after {
+      width: 1px;
+      height: 3px;
+      transform: translateX(-50%) rotate(100deg);
+    }
+  }
+
+  &__route {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    font-family: $font-family-jp;
+    font-size: 1.2rem;
+    color: $color-text;
+  }
+
+  &__route-label {
+    font-family: $font-family-en;
+    font-weight: 700;
+  }
+
+  &__route-list {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    list-style: none;
+  }
+
+  &__route-item {
+    padding: 4px 16px; // 要確認: 内側余白
+    border-radius: 999px;
+    background-color: $color-background-hover; // 要確認: 正確な色は未特定
+    font-size: 1.2rem;
+  }
+
+  &__route-arrow {
+    color: $color-border-tag;
+    font-size: 1rem;
+  }
+
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    list-style: none;
+  }
+
+  &__tag {
+    padding: 4px 16px; // 要確認: 内側余白
+    border: 1px solid $color-border-tag;
+    border-radius: 999px;
+    font-family: $font-family-jp;
+    font-size: 1.1rem;
+    color: $color-text;
+  }
+
+  &__more {
+    display: flex;
+    align-items: center;
+    align-self: flex-end;
+    gap: 8px;
+    margin-top: auto;
+  }
+
+  &__more-text {
+    font-family: $font-family-en;
+    font-size: 1.2rem;
+    letter-spacing: 0.05em;
+    color: $color-text;
+  }
+
+  &__more-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px; // 要確認: サイズ
+    height: 32px;
+    border-radius: 50%;
+    background-color: $color-button;
+    color: $color-white;
+    font-size: 1.4rem;
+  }
+
+  &__all {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    max-width: 1100px; // ユーザー指示: コンテンツ幅1100px
+    padding: 3.2rem 0; // 要確認: 上下余白
+    margin: 6.4rem auto 0; // 要確認: リストとの間隔
+    border-top: 1px solid $color-border-tag;
+    border-bottom: 1px solid $color-border-tag;
+    font-family: $font-family-jp;
+    font-size: 1.4rem;
+    color: $color-text;
+    text-decoration: none;
+  }
+
+  &__all-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px; // 要確認: サイズ
+    height: 32px;
+    border-radius: 50%;
+    background-color: $color-button;
+    color: $color-white;
+    font-size: 1.4rem;
+  }
+}
