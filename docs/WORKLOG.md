@@ -1,5 +1,37 @@
 # WORKLOG
 
+## 2026-07-27
+
+- experienceセクション実装
+  - `p-experience`（`scss/object/project/_experience.scss`）新規。マーキー直後の全幅写真1枚（`img/top/experience.png` 1920×650）
+  - 高さは固定せず `aspect-ratio: 1920 / 650` ＋ `object-fit: cover` で比率維持。左右paddingなしの全幅
+  - Figmaの `top: 4334px` は絶対座標のため使わず、マーキーの直後に置くことで位置を成立させた
+
+- マーキーを2本目として追加
+  - TOUR/EVENTセクションの直下に `p-marquee` をもう1つ設置。SCSSは既存を流用し変更なし
+  - （要確認）同じ英文が計4回DOMに存在するため、2本目を `aria-hidden` にするかはデザイン意図次第
+
+- SPOTセクション実装
+  - `p-spot`（`scss/object/project/_spot.scss`）新規。見出し＋3カード＋PICKUP TAG帯＋「スポットをもっと見る」
+  - 構造はFigmaのtop値から確定: カード列1200×580（top198）/ 空きボックス1200×270（top618）/ PICKUP TAG 1200×300（top888）/ もっと見る1200×144（top1188）
+  - 「空きボックス」は中身が無く枠だけのボックスで、上辺がカード列の下端に160px重なる。`p-spot__frame` に `margin-top: -160px` を与え、カード列は `z-index: 1` ＋ページ背景色で線を隠す
+  - 3段のボックスは隣接するため `margin-top: -1px` で枠線を共有し1pxに保つ
+  - PICKUP TAG帯の高さは `spot4.png` を実寸300pxで置いて決定し、タグ側は `grid-template-rows: repeat(4, 1fr)` で4等分（1行75px相当）
+  - カード列幅1120pxは、外枠1200 ÷ 3列＋gap16から逆算すると写真幅が `spot1〜3.png` の実寸321pxと一致するため採用
+  - 背景の地図アウトラインは `img/top/spotbg.png`（803×659）をセクションの `background-image` に指定
+  - ユーザー指示によりカード背景色はページ背景と同色（`$color-background`）。透明にすると外枠の上辺がカードを横切るため不透明指定は残す
+  - エリアのピンアイコンは素材が無いため `border-radius: 50% 50% 50% 0` ＋45度回転のCSSで代用、PICKUP TAGのシェブロンは `»` の回転で代用
+  - （要確認）背景地図の表示位置、カード内側余白・各フォントサイズ、もっと見る段の高さ（padding 5.6rem＋アイコン32pxで146px、Figmaは144px）
+
+- VISセクション実装
+  - `p-vis`（`scss/object/project/_vis.scss`）新規。全幅バンド1920×540、`vis1〜3.png`（実寸480×325 / 864×540 / 480×325）
+  - `480 + gap48 + 864 + gap48 + 480 = 1920` のため、絶対座標ではなく gap 48px の3カラムflexで実装。`flex: 480 / 864 / 480` を比率として分配
+  - 上下配置は `justify-content: space-between` のみ。左カラムは画像→テキスト、右カラムはテキスト→画像のDOM順で「右画像は下端揃え」が自動的に成立
+  - バンドの高さは中央画像の `aspect-ratio: 864 / 540` が決め、左右カラムが `stretch` で追随（`height` 固定なし）
+  - テキストはArimo Bold 18px / 行間22px。Figmaの折り返し位置を再現するため `<br>` を使用
+  - 左テキストは左揃え、右テキストのみ `--right` で右揃え（指定の `text-align: right` は右ブロックのものと解釈）
+  - （要確認）テキストの左右余白32pxは実測からの推定値
+
 ## 2026-07-24
 
 - JOURNALセクション実装

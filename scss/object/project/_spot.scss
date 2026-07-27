@@ -1,0 +1,234 @@
+@use "../../foundation/variable" as *;
+@use "../../foundation/mixin" as *;
+
+.p-spot {
+  padding: 17rem 96px; // journal / tour に合わせたセクション上下余白
+  background-image: url("../img/top/spotbg.png"); // 背景の地図アウトライン（803×659）
+  background-repeat: no-repeat;
+  background-position: left 0 top 6rem; // 要確認: 表示位置
+
+  &__heading {
+    text-align: center;
+  }
+
+  &__title {
+    font-family: $font-family-en;
+    font-size: 3.2rem; // 要確認: フォントサイズ
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: $color-text;
+  }
+
+  &__title-jp {
+    margin-top: 8px; // 要確認: 間隔
+    font-family: $font-family-jp;
+    font-size: 1.3rem; // 要確認: フォントサイズ
+    color: $color-button;
+  }
+
+  &__lead {
+    margin-top: 24px; // 要確認: 間隔
+    font-family: $font-family-jp;
+    font-size: 1.4rem; // 要確認: フォントサイズ
+    color: $color-text;
+  }
+
+  &__list {
+    position: relative;
+    z-index: 1; // 外枠の上辺より前面に置き、カードで線を隠す
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: start; // カードの高さは中身に任せる
+    gap: 16px; // 要確認: カード間の横余白
+    max-width: 1120px; // Figma: 外枠1200pxに対し左右40pxずつ内側
+    margin: 6.4rem auto 0; // 要確認: 見出しとの間隔
+  }
+
+  &__item {
+    display: flex;
+    gap: 8px; // 要確認: エリア表記とカードの間隔
+    text-decoration: none;
+  }
+
+  &__area {
+    display: flex;
+    flex-shrink: 0;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    width: 32px; // 要確認: 縦書きエリア表記の列幅
+  }
+
+  &__area-icon {
+    flex-shrink: 0;
+    width: 12px;
+    height: 12px;
+    border: 1px solid $color-button; // 要確認: ピン素材が無いためCSSで代用
+    border-radius: 50% 50% 50% 0;
+    transform: rotate(-45deg);
+  }
+
+  &__area-text {
+    writing-mode: vertical-rl;
+    font-family: $font-family-jp;
+    font-size: 1.1rem; // 要確認: フォントサイズ
+    letter-spacing: 0.1em;
+    color: $color-text;
+  }
+
+  &__card {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    border: 1px solid $color-border-tag;
+    background-color: $color-background; // ユーザー指示: ページ背景と同色（外枠の上辺を隠す役割）
+  }
+
+  &__thumb-img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 321 / 262; // spot*.png の実寸比
+    object-fit: cover;
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: 24px; // 要確認: タイトル・本文・タグの間隔
+    padding: 3.2rem; // 要確認: 内側余白
+  }
+
+  &__item-title {
+    font-family: $font-family-jp;
+    font-size: 1.6rem; // 要確認: フォントサイズ
+    font-weight: 500;
+    line-height: 1.5;
+    color: $color-text;
+  }
+
+  &__text {
+    font-family: $font-family-jp;
+    font-size: 1.3rem; // 要確認: フォントサイズ
+    line-height: 1.8;
+    color: $color-text;
+  }
+
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    list-style: none;
+  }
+
+  &__tag {
+    padding: 6px 12px; // journal のタグと同形状（要確認: 内側余白）
+    border: 1px solid $color-border-tag;
+    border-radius: 4px;
+    font-family: $font-family-jp;
+    font-size: 1.1rem;
+    color: $color-text;
+  }
+
+  // 枠付きボックス3段（空き270 / PICKUP TAG 300 / もっと見る144）をまとめる箱
+  // Figma: いずれも幅1200px、隣り合う枠線は共有して1pxに見せる
+  &__frame {
+    max-width: 1200px;
+    margin: -160px auto 0; // Figma: 空きボックスの上辺をカード列の下端に160px重ねる
+  }
+
+  // 中身を持たない枠だけのボックス。上辺がカードを横切る
+  &__spacer {
+    height: 270px; // Figma: 1200×270
+    border: 1px solid $color-border-tag;
+  }
+
+  &__pickup {
+    display: flex;
+    margin-top: -1px; // 上のボックスと枠線を共有
+    border: 1px solid $color-border-tag;
+  }
+
+  &__pickup-label {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    gap: 8px;
+    width: 184px; // Figma: ラベル列幅（1200 - 画像300 - タグ3列）
+    padding-left: 3.2rem;
+    font-family: $font-family-en;
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: $color-text;
+  }
+
+  &__pickup-icon {
+    font-size: 1rem;
+    color: $color-button;
+    transform: rotate(-90deg); // 要確認: アイコン素材が無いため矢印文字で代用
+  }
+
+  // spot4.png を実寸300×300で置き、この高さが帯全体の高さ（Figma300px）を決める
+  &__pickup-thumb {
+    flex-shrink: 0;
+    width: 300px;
+  }
+
+  &__pickup-img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+  }
+
+  &__pickup-tags {
+    display: grid;
+    flex: 1;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr); // 帯の高さを4行で等分（1行75px相当）
+    list-style: none;
+  }
+
+  &__pickup-tag {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 1.6rem; // 高さはgrid側の4等分に任せる
+    border-left: 1px solid $color-border-tag;
+    border-bottom: 1px solid $color-border-tag;
+    font-family: $font-family-jp;
+    font-size: 1.3rem; // 要確認: フォントサイズ
+    color: $color-text;
+
+    // 最終行は帯の下ボーダーを使う（タグ数は3の倍数前提）
+    &:nth-last-child(-n + 3) {
+      border-bottom: none;
+    }
+  }
+
+  &__all {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 5.6rem 0; // Figma: ボックス高さ144px相当をpaddingで確保
+    margin-top: -1px; // 上のボックスと枠線を共有
+    border: 1px solid $color-border-tag;
+    font-family: $font-family-jp;
+    font-size: 1.4rem;
+    color: $color-text;
+    text-decoration: none;
+  }
+
+  &__all-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px; // 要確認: サイズ
+    height: 32px;
+    border-radius: 50%;
+    background-color: $color-button;
+    color: $color-white;
+    font-size: 1.4rem;
+  }
+}

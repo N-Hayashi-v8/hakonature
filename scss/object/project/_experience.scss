@@ -1,0 +1,12 @@
+@use "../../foundation/variable" as *;
+@use "../../foundation/mixin" as *;
+
+// マーキー直下の全幅写真（Figma: 1920×650）
+.p-experience {
+  &__image {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1920 / 650; // 高さは固定せず比率で決める
+    object-fit: cover;
+  }
+}

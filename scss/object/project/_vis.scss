@@ -1,0 +1,48 @@
+@use "../../foundation/variable" as *;
+@use "../../foundation/mixin" as *;
+
+// Figma: 1920×540 の全幅バンド（480 + gap48 + 864 + gap48 + 480 = 1920）
+.p-vis {
+  display: flex;
+  gap: 48px;
+
+  // 画像とテキストをカラムの上下端に振り分ける
+  &__side {
+    display: flex;
+    flex: 480; // 480 : 864 : 480 の比率で分配
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__side-img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 480 / 325; // vis1 / vis3 の実寸比
+    object-fit: cover;
+  }
+
+  // 中央画像がバンド全体の高さ（Figma540px）を決める
+  &__center {
+    flex: 864;
+  }
+
+  &__center-img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 864 / 540; // vis2 の実寸比
+    object-fit: cover;
+  }
+
+  &__text {
+    padding: 0 32px; // 要確認: 左右の余白
+    font-family: $font-family-en;
+    font-size: 1.8rem; // Figma: 18px
+    font-weight: 700;
+    line-height: 2.2rem; // Figma: 22px
+    color: $color-text;
+
+    &--right {
+      text-align: right; // Figma: 右カラムのみ右揃え
+    }
+  }
+}
